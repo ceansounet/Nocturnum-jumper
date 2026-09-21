@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://items/quest/chest.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://items/quest/chest.png" id="2_chest"]
+[ext_resource type="Texture2D" path="res://items/quest/gold_key.png" id="3_key"]
+[ext_resource type="AudioStream" path="res://items/quest/chest_unlock.wav" id="4_unlock"]
+[ext_resource type="AudioStream" path="res://items/quest/chest_open.wav" id="5_open"]
+[ext_resource type="AudioStream" path="res://items/quest/gold_key_pickup.wav" id="6_reward"]
+[ext_resource type="AudioStream" path="res://items/quest/locked.wav" id="7_locked"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chest"]
+size = Vector2(30, 20)
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_chest")
+offset = Vector2(0, -16)
+hframes = 3
+
+[node name="RewardKey" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+texture = ExtResource("3_key")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_chest")
+
+[node name="UnlockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_unlock")
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_open")
+
+[node name="RewardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_reward")
+
+[node name="LockedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_locked")

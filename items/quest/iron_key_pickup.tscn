@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://items/quest/key_pickup.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://items/quest/iron_key.png" id="2_tex"]
+[ext_resource type="AudioStream" path="res://items/quest/iron_key_pickup.wav" id="3_snd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_key"]
+radius = 10.0
+
+[node name="IronKeyPickup" type="Area2D"]
+script = ExtResource("1_script")
+item_id = "iron_key"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_key")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_snd")
