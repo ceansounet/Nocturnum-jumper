@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b63gyttjpgsqb"]
+
+[ext_resource type="SpriteFrames" uid="uid://dmmcx8v3ucspd" path="res://sprites/player/player_frames.tres" id="1_rkm22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(12, 26)
+
+[node name="Player" type="CharacterBody2D" unique_id=421575960]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2070772151]
+texture_filter = 1
+position = Vector2(0, -20)
+sprite_frames = ExtResource("1_rkm22")
+animation = &"wall_slide_left"
+frame_progress = 0.79128647
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=85942268]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_body")
